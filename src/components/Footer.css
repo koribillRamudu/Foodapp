@@ -1,0 +1,35 @@
+footer {
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    padding: 20px 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s forwards;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+footer a {
+    color: #ffdd57;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.2s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+footer a:not(:last-child)::after {
+    content: "|";
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #e0e0e0;
+}
