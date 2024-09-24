@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 
 .restaurant-card {
@@ -11,7 +11,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
     margin: 10px;
-    width: calc(30% - 20px);
+    width: calc(25% - 30px);
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -45,15 +45,15 @@ h3 {
     margin: 5px 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .restaurant-card {
-        width: calc(45% - 20px);
+        width: calc(35% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .restaurant-card {
-        width: calc(100% - 20px);
+        width: calc(70% - 20px);
     }
 
     h1 {

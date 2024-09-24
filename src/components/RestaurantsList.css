@@ -8,9 +8,9 @@
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 10px;
-    width: calc(30% - 20px);
+    padding: 5px;
+    margin: 5px; /* Reduced margin to decrease space between cards */
+    width: calc(20% - 10px); /* Adjusted width calculation to fit reduced margin */
     text-align: center;
     transition: transform 0.2s;
 }
@@ -42,6 +42,7 @@ h3 {
     color: #ffdd57;
     margin: 4px 0;
 }
-a{
+
+a {
     color: red;
 }

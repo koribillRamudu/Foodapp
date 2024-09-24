@@ -2,6 +2,7 @@ import RestaurantsContainer from "./RestaurantsList";
 import MenuList from "./Menu";
 import './Home.css';
 import React, { useState } from 'react';
+import FoodList from "./FoodList";
 function Home(){
     const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
     let restaurants=[{'id':1,'title':'Bidri',
@@ -312,6 +313,12 @@ function Home(){
     const selectedMenu = menus.filter(menu => menu.restaurant_id === selectedRestaurantId);
     return (
         <div>
+            <FoodList/>
+            <br></br>
+            <br></br>
+            <br></br>
+            <h1>Restaurants Below</h1>
+            <br></br>
             <div className="restaurant-container">
                 {restaurants.map((restaurant) => (
                     <RestaurantsContainer

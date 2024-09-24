@@ -1,6 +1,6 @@
 header {
     background: linear-gradient(90deg, #4e54c8, #8f94fb);
-    padding: 20px 20px;
+    padding: 10px 20px; /* Reduced padding to make the navbar smaller */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     height: auto;
     display: flex;
@@ -22,7 +22,7 @@ nav {
 }
 
 .logo-container img {
-    width: 150px;
+    width: 120px; /* Reduced the size of the logo */
     height: auto;
     transition: transform 0.3s ease-in-out;
 }
@@ -34,7 +34,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 20px; /* Reduced the gap between navigation items */
     justify-content: flex-end;
     align-items: center;
 }
@@ -42,7 +42,7 @@ nav {
 .nav-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px; /* Reduced font size for smaller navbar */
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease-in-out;
@@ -68,9 +68,9 @@ nav {
 
 p {
     color: #FFD700;
-    font-size: 20px;
+    font-size: 18px; /* Reduced font size */
     margin: 0;
-    padding-left: 15px;
+    padding-left: 10px; /* Reduced padding */
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     transition: color 0.3s ease-in-out;
@@ -84,7 +84,7 @@ p {
 
 @media (max-width: 1024px) {
     .nav-links {
-        gap: 20px;
+        gap: 15px; /* Reduced gap for smaller screens */
     }
 }
 
@@ -99,20 +99,20 @@ p {
         margin-top: 10px;
     }
     .nav-links a {
-        font-size: 16px;
+        font-size: 14px; /* Reduced font size for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .nav-links {
-        gap: 15px;
+        gap: 10px; /* Further reduced gap for mobile */
     }
     .nav-links a {
-        font-size: 14px;
+        font-size: 12px; /* Further reduced font size for mobile */
     }
     p {
-        font-size: 18px;
-        padding-left: 10px;
+        font-size: 16px; /* Further reduced font size for mobile */
+        padding-left: 5px;
     }
 }
 

@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 20px;
+}
+
+.food-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px 0;
+    max-width: 100%; /* Adjust the width as needed */
+}
+
+.food-item-group {
+    text-align: center;
+    flex: 0 0 auto;
+    width: 120px; /* Limit the width */
+}
+
+.food-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the images circular */
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.food-container p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Limit the number of displayed items to 8 */
+.food-container {
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 100px); /* Display exactly 8 items */
+    gap: 20px;
+    scroll-behavior: smooth;
+}
+
+.food-container::-webkit-scrollbar {
+    height: 10px;
+}
+
+.food-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.food-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
