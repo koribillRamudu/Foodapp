@@ -60,7 +60,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/pepperoni_pizza.jpg',
             'price': '8.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 2,
@@ -69,7 +68,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/margherita.jpg',
             'price': '7.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 3,
@@ -78,7 +76,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/garlic_bread.jpg',
             'price': '4.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 4,
@@ -87,7 +84,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/chicken_wings.jpg',
             'price': '9.99',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 2
@@ -98,7 +94,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/cheese.jpg',
             'price': '9.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 6,
@@ -107,7 +102,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/pepperoni_pizza.jpg',
             'price': '10.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 7,
@@ -116,7 +110,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/garlic_knots.jpg',
             'price': '5.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 8,
@@ -125,7 +118,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg',
             'price': '12.99',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 3
@@ -136,7 +128,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/cheeseburger.jpg',
             'price': '8.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 10,
@@ -145,7 +136,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/veggie_burger.jpg',
             'price': '7.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 11,
@@ -154,7 +144,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/french_fries.jpg',
             'price': '3.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 12,
@@ -163,7 +152,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/chicken_nuggets.jpg',
             'price': '6.99',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 4
@@ -174,7 +162,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/veggie_burger.jpg',
             'price': '7.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 14,
@@ -183,7 +170,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/bbq_chicken_pizza.jpg',
             'price': '11.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 15,
@@ -192,7 +178,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/onion_rings.jpg',
             'price': '5.49',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 16,
@@ -201,7 +186,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/chicken_caesar_salad.jpg',
             'price': '9.49',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 5
@@ -212,7 +196,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/california_roll.jpg',
             'price': '12.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 18,
@@ -221,7 +204,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/spicy_tuna_roll.jpg',
             'price': '13.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 19,
@@ -230,7 +212,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/vegetable_tempura.jpg',
             'price': '8.49',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 20,
@@ -239,7 +220,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/miso_soup.jpg',
             'price': '3.99',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 6
@@ -250,7 +230,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/spicy_tuna_roll.jpg',
             'price': '13.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 22,
@@ -259,7 +238,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/dragon_roll.jpg',
             'price': '14.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 23,
@@ -268,7 +246,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/edamame.jpg',
             'price': '4.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 24,
@@ -277,7 +254,6 @@ function Home(){
             'category': 'Others',
             'image': 'https://example.com/seaweed_salad.jpg',
             'price': '5.99',
-            'add_to_cart': 'Add to Cart'
         },
     
         // Restaurant 7
@@ -288,7 +264,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/chicken_taco.jpg',
             'price': '3.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 26,
@@ -297,7 +272,6 @@ function Home(){
             'category': 'Non-Veg',
             'image': 'https://example.com/beef_taco.jpg',
             'price': '4.99',
-            'add_to_cart': 'Add to Cart'
         },
         {
             'id': 27,
@@ -306,7 +280,6 @@ function Home(){
             'category': 'Veg',
             'image': 'https://example.com/veggie_burrito.jpg',
             'price': '5.99',
-            'add_to_cart': 'Add to Cart'
         },];
     
     
@@ -333,7 +306,6 @@ function Home(){
             </div>
             {selectedRestaurantId && (
                 <div className="menu-container">
-                    <h2>Menu</h2>
                 {selectedMenu.map((menu) => (
                 <MenuList
                     key={menu.id}

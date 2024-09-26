@@ -10,10 +10,10 @@ function Header(){
                 </div>
 
                 <div className="nav-links">
-                    <a href="">Home</a>
-                    <a href="">About</a>
-                    <a href="">Cart</a>
-                    <p>Hi,user</p>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/cart">Cart</a>
+                    <p id='user'>Hi,user</p>
                 </div>
             </nav>
             </header> 
