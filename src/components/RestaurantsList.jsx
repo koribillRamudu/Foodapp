@@ -1,6 +1,6 @@
 import './RestaurantsList.css';
 
-function RestaurantsContainer({ title, image, location, rating,onClick }) {
+function RestaurantsContainer({title, image, location, rating, onClick }) {
     return (
         <div className="restaurant-card">
             <img src={image} alt={title} className="restaurant-image" />

@@ -4,8 +4,10 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
-import Cart from './components/Cart';
-import MenuList from './components/Menu';
+import Cart from './components/Cartpage';
+import MenuPage from './components/MenuPage';
+import AddRestaurant from './components/addResturant';
+
 
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='/menu:id' element={<MenuList />} />
+        <Route path='/addrestaurant' element={<AddRestaurant/>}/>
+        <Route path="/menu/:restaurantId" element={<MenuPage />} />
       </Routes>
       <Footer />
     </div>
