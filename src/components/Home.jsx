@@ -36,6 +36,7 @@ function Home() {
 
   return (
     <div>
+      <br></br>
         <FoodList/>
         <br/>
         <br/>
