@@ -10,6 +10,7 @@ import LoginPage from './components/LoginPage';
 import Header from './components/Header';
 import React, { useState } from 'react';
 import { CartProvider } from './context/CartContext'; // Import CartProvider
+import RegisterPage from './components/register';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -18,7 +19,6 @@ function App() {
   return (
     <CartProvider> {/* Wrap your app in CartProvider */}
       <div>
-        {location.pathname !== '/login' && <Header username={username} />}
         <Routes>
           <Route path="/" element={<Home username={username} />} />
           <Route path="/about" element={<About />} />
@@ -26,6 +26,7 @@ function App() {
           <Route path="/addrestaurant" element={<AddRestaurant />} />
           <Route path="/menu/:restaurantId" element={<MenuPage />} />
           <Route path="/login" element={<LoginPage setUsername={setUsername} />} />
+          <Route path='/register' element={<RegisterPage/>}/>
         </Routes>
         <Footer />
       </div>

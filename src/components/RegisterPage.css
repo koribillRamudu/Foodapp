@@ -1,0 +1,132 @@
+/* Apply global styling */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('C:/Users/RAMUDU/Downloads/street-chinese-food-with-copy-space.jpg'); /* Use local background or online URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Container for the registration form */
+.register-container {
+    display: flex;
+    justify-content: center; /* Center the form horizontally */
+    align-items: center; /* Center the form vertically */
+    height: 100vh; /* Full viewport height */
+    width: 120%; /* Full width */
+    box-sizing: border-box;
+    margin-left: 400px;
+}
+
+/* Register Form */
+.register-form {
+    background: #ffffff;
+    padding: 30px; /* Reduce padding */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 480px; /* Reduce the form width */
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Heading styling */
+h2 {
+    font-size: 26px; /* Smaller heading size */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Input fields container */
+.input-container {
+    margin-bottom: 15px; /* Reduce spacing between inputs */
+}
+
+/* Styling for input fields */
+input,
+textarea {
+    width: 100%;
+    padding: 10px; /* Reduce padding */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 14px; /* Smaller font size */
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Styling for textarea (Address field) */
+textarea {
+    height: 100px; /* Smaller height for address field */
+}
+
+/* Focus effect for inputs */
+input:focus,
+textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px; /* Reduce padding */
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px; /* Smaller font size */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Success message styling */
+.success-message {
+    color: green;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Responsive Design: For mobile devices */
+@media (max-width: 600px) {
+    .register-form {
+        padding: 20px;
+        width: 90%; /* Make the form more responsive */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

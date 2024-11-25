@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('https://example.com/food-background.jpg'); /* Add your background image URL */
+    background-image: url('C:/Users/RAMUDU/Downloads/top-view-salad-with-clipboard-yellow-background.jpg'); /* Add your background image URL */
     background-size: cover;
     background-position: center;
   }
@@ -11,6 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-left: -50px;
+    margin-top: 70px;
   }
   
   .login-form {
@@ -71,4 +73,3 @@ body {
     color: red;
     margin-bottom: 10px;
   }
-  
