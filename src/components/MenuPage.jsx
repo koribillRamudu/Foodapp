@@ -6,59 +6,143 @@ import { CartContext } from '../context/CartContext';
 
 function MenuPage() {
   const { addToCart } = useContext(CartContext);
-  const { restaurantId } = useParams(); // Extract restaurantId from the URL
-  const [menuItems, setMenuItems] = useState([]); // Store menu items
-  const [loading, setLoading] = useState(true); // Handle loading state
-  const [error, setError] = useState(null); // Handle error state
+  const { restaurantId } = useParams();
+  const [menuItems, setMenuItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [editingItem, setEditingItem] = useState(null);
+  const [updatedItem, setUpdatedItem] = useState({});
+  const [user, setUser] = useState(null);
 
-  // Fetch menu items for the specific restaurant
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        setLoading(true); // Set loading state before fetching
-        const response = await axios.get('http://localhost:5000/api/menu/menuitems'); // API to get all menu items
-        
-        console.log('API Response:', response.data); // Log the response from the API
-        
-        // Filter the menu items based on restaurantId
+        setLoading(true);
+        const response = await axios.get('http://localhost:5000/api/menu/menuitems');
         const filteredMenuItems = response.data.filter(item => item.restaurant_id === String(restaurantId));
-        
-        console.log('Filtered Menu Items:', filteredMenuItems); // Log filtered items
-        
-        setMenuItems(filteredMenuItems); // Set filtered menu items to state
-        setLoading(false); // Stop loading
+        setMenuItems(filteredMenuItems);
+        setLoading(false);
       } catch (error) {
-        setError('Error fetching menu data'); // Handle error
-        setLoading(false); // Stop loading
+        setError('Error fetching menu data');
+        setLoading(false);
       }
     };
 
-    fetchMenuItems(); // Fetch the menu items when component mounts
+    fetchMenuItems();
 
-  }, [restaurantId]); // Re-fetch if restaurantId changes
+    const loggedInUser = localStorage.getItem('user');
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, [restaurantId]);
 
-  // Show loading message while fetching
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
-  // Show error message if an error occurs
-  if (error) {
-    return <div>{error}</div>;
-  }
+  const handleEditClick = (menuItem) => {
+    setEditingItem(menuItem);
+    setUpdatedItem(menuItem);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedItem((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleUpdateClick = async () => {
+    try {
+      const response = await axios.put(`http://localhost:5000/api/menu/${editingItem._id}`, updatedItem);
+      setMenuItems((prev) =>
+        prev.map((item) => (item._id === editingItem._id ? { ...item, ...updatedItem } : item))
+      );
+      setEditingItem(null);
+    } catch (error) {
+      setError('Error updating menu item');
+    }
+  };
+
+  const handleDeleteClick = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/menu/${id}`);
+      setMenuItems((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+      setError('Error deleting menu item');
+    }
+  };
+
+  const renderEditForm = () => {
+    if (!editingItem) return null;
+
+    return (
+      <>
+        <div className="modal-overlay" onClick={() => setEditingItem(null)} />
+        <div className="edit-form">
+          <h3>Edit Menu Item</h3>
+          <label>
+            Item Name:
+            <input
+              type="text"
+              name="item_name"
+              value={updatedItem.item_name}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Category:
+            <input
+              type="text"
+              name="category"
+              value={updatedItem.category}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Image URL:
+            <input
+              type="text"
+              name="image"
+              value={updatedItem.image}
+              onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Price:
+            <input
+              type="number"
+              name="price"
+              value={updatedItem.price}
+              onChange={handleInputChange}
+            />
+          </label>
+          <button onClick={handleUpdateClick}>Update Item</button>
+          <button onClick={() => setEditingItem(null)}>Cancel</button>
+        </div>
+      </>
+    );
+  };
 
   return (
     <div>
       <div className="menu-container">
         {menuItems.map((menu) => (
-          <div key={menu.id} className="menu-item">
+          <div key={menu._id} className="menu-item">
             <img src={menu.image} alt={menu.item_name} />
             <h3>{menu.item_name}</h3>
             <p>₹ {menu.price}</p>
             <button onClick={() => addToCart(menu)}>Add to Cart</button>
+            {user && user.role === 'admin' && (
+              <>
+                <button onClick={() => handleEditClick(menu)}>Edit</button>
+                <button onClick={() => handleDeleteClick(menu._id)}>Delete</button>
+              </>
+            )}
           </div>
         ))}
       </div>
+      {renderEditForm()}
     </div>
   );
 }

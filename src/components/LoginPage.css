@@ -1,9 +1,6 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('C:/Users/RAMUDU/Downloads/top-view-salad-with-clipboard-yellow-background.jpg'); /* Add your background image URL */
-    background-size: cover;
-    background-position: center;
   }
   
   .login-container {

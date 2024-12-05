@@ -9,6 +9,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
+  const [role,setRole]=useState('user');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -37,6 +38,7 @@ const RegisterPage = () => {
         password,
         phoneNumber,
         address,
+        role
       });
 
       // On success, show success message
@@ -109,6 +111,10 @@ const RegisterPage = () => {
               onChange={(e) => setAddress(e.target.value)}
               required
             ></textarea>
+          </div>
+          <div className="input-container">
+            {/* Hidden input to set role */}
+            <input type="hidden" value={role} />
           </div>
           {error && <p className="error-message">{error}</p>}
           {success && <p className="success-message">{success}</p>}

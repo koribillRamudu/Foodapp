@@ -12,7 +12,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) => {
+      const index = prevItems.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        return [...prevItems.slice(0, index), ...prevItems.slice(index + 1)];
+      }
+      return prevItems;
+    });
   };
 
   return (
