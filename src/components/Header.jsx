@@ -2,10 +2,11 @@ import './Header.css';
 import logo from './logo1-removebg-preview.png';
 import { Link } from 'react-router-dom'; // Import Link for routing
 import { useContext } from 'react'; // Import useContext for accessing CartContext
-import { CartContext } from '../context/CartContext'; // Import the CartContext
+import { useCart } from '../context/CartContext';
+import OrderHistoryPage from './orderhistory';
 
 function Header({ username }) {
-    const { cartItems } = useContext(CartContext); // Access cart items from the context
+    const { cartItems } = useCart(); // Access cart items from the context
 
     return (
         <div>
@@ -19,6 +20,7 @@ function Header({ username }) {
                         <Link to="/">Home</Link>
                         <Link to="/about">About</Link>
                         <Link to="/cart">Go to Cart</Link>
+                        <Link to="/ordershistory">Your orders</Link>
                         {username && <p id="user">Welcome, {username}!</p>}
                         <a href="/login">Logout</a>
                     </div>

@@ -136,7 +136,7 @@ function MenuPage() {
             {user && user.role === 'admin' && (
               <>
                 <button onClick={() => handleEditClick(menu)}>Edit</button>
-                <button onClick={() => handleDeleteClick(menu._id)}>Delete</button>
+                <button onClick={() => handleDeleteClick(menu._id)} id="delete">Delete</button>
               </>
             )}
           </div>

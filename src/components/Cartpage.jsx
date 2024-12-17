@@ -1,45 +1,90 @@
-import React, { useContext } from 'react';
-import { CartContext } from '../context/CartContext';
-import './Cart.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import './Cart.css'
 
-// If you're using Font Awesome, import the icon package
-import { FaTrashAlt } from 'react-icons/fa'; // Example of Font Awesome delete icon
+const CartPage = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [message, setMessage] = useState("");
 
-function CartPage() {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      const user = JSON.parse(localStorage.getItem("user"));
+      if (!user) return;
 
-  // Calculate the total price, ensure price is a number
-  const totalPrice = cartItems.reduce((acc, item) => {
-    const price = parseFloat(item.price);
-    return !isNaN(price) ? acc + price : acc;
-  }, 0);
+      try {
+        const response = await axios.get(`http://localhost:5000/api/cart/${user._id}`);
+        setCartItems(response.data);
+        const total = response.data.reduce((sum, item) => sum + item.price, 0);
+        setTotalAmount(total);
+      } catch (err) {
+        console.error("Error fetching cart items:", err);
+      }
+    };
+    fetchCartItems();
+  }, []);
 
-  if (cartItems.length === 0) {
-    return <p>Your cart is empty!</p>;
-  }
+  const handleRemoveItem = async (itemId) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) return;
+
+    try {
+      await axios.delete(`http://localhost:5000/api/cart/${user._id}/${itemId}`);
+      setCartItems(cartItems.filter((item) => item._id !== itemId));
+    } catch (err) {
+      console.error("Error removing item:", err);
+    }
+  };
+
+  const handleProceedToPay = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      setMessage("Please log in to proceed.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`http://localhost:5000/api/orders`, {
+        userId: user._id,
+        items: cartItems,
+        totalAmount,
+      });
+
+      if (response.data.success) {
+        setMessage("Order placed successfully!");
+        setCartItems([]);
+        setTotalAmount(0);
+      }
+    } catch (err) {
+      console.error("Error placing order:", err);
+      setMessage("Failed to place order. Please try again.");
+    }
+  };
 
   return (
-    <div className="cart-page">
-      <h1>Cart</h1>
-      {cartItems.map((item) => (
-        <div key={item.id} className="cart-item">
-          <img src={item.image} alt={item.item_name} className="cart-item-image" />
-          <div className="cart-item-details">
-            <h2>{item.item_name}</h2> {/* Larger item name */}
-            <p>Price: ₹ {item.price}</p>
-          </div>
-          {/* Replace the remove button with the delete icon */}
-          <button onClick={() => removeFromCart(item.id)} className="remove-button">
-            <FaTrashAlt className="delete-icon" />
-          </button>
-        </div>
-      ))}
-      <div className="cart-summary">
-        <p className="total-price">Total: ₹ {totalPrice.toFixed(2)}</p>
-        <button className="checkout-button">Proceed to Checkout</button>
-      </div>
+    <div>
+      <h1>Your Cart</h1>
+      {message && <p>{message}</p>}
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <ul>
+          {cartItems.map((item) => (
+            <li key={item._id}>
+              <img src={item.image} alt={item.item_name} />
+              <h3>{item.item_name}</h3>
+              <p>₹ {item.price}</p>
+              <button onClick={() => handleRemoveItem(item._id)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <h2>Total Amount: ₹ {totalAmount}</h2>
+      {cartItems.length > 0 && (
+        <button onClick={handleProceedToPay}>Proceed to Pay</button>
+      )}
     </div>
   );
-}
+};
 
 export default CartPage;

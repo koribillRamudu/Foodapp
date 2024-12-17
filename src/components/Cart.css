@@ -1,157 +1,125 @@
-/* CartPage Styles */
-.cart-page {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
+/* Container for Cart Page */
+.cart-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.cart-page h1 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.cart-item {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.cart-item img {
-  max-width: 120px;
-  max-height: 120px;
-  object-fit: cover;
-  margin-right: 20px;
-  border-radius: 8px;
-}
-
-.cart-item-details {
-  flex-grow: 1;
-}
-
-.cart-item h2 {
-  font-size: 24px; /* Increased the font size of the item name */
-  color: #333;
-  margin: 0;
-  margin-top: 5%;
-}
-
-.cart-item p {
-  font-size: 18px;
-  color: #555;
-  margin:  0;
-}
-
-/* Decreased width of the delete button */
-.remove-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  font-size: 18px;
-  width: 30px; /* Fixed width for delete button */
-  height: 30px; /* Ensure it’s a square */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.remove-button:focus {
-  outline: none;
-}
-
-.delete-icon {
-  color: #f44336;
-  font-size: 18px; /* Reduced the size of the icon */
-}
-
-.delete-icon:hover {
-  color: #d32f2f;
-}
-
-/* Cart Summary */
-.cart-summary {
-  background-color: #fff;
-  border: 1px solid #ddd;
   padding: 20px;
-  margin-top: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
+  font-family: 'Arial', sans-serif;
 }
 
-.cart-summary p {
+/* Title */
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Message (Success/Failure) */
+p {
+  font-size: 1rem;
+  color: #ff0000;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Cart Items */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+li {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Item Image */
+li img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Item Name */
+li h3 {
+  font-size: 1.2rem;
+  color: #333;
   margin: 10px 0;
 }
 
-.cart-summary .total-price {
-  font-weight: bold;
-  font-size: 22px;
-  color: #333;
+/* Item Price */
+li p {
+  font-size: 1rem;
+  color: #777;
+  margin: 10px 0;
 }
 
-.cart-summary button {
-  background-color: #4CAF50;
+/* Remove Button */
+button {
+  background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 18px;
-  border-radius: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
   cursor: pointer;
-  width: 100%;
-  margin-top: 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-.cart-summary button:hover {
+button:hover {
+  background-color: #ff3d2b;
+}
+
+/* Total Amount */
+h2 {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Proceed to Pay Button */
+button:focus {
+  outline: none;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
   background-color: #45a049;
 }
 
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-  .cart-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cart-item img {
-    max-width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .cart-summary {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart-page h1 {
-    font-size: 28px;
-  }
-
-  .cart-summary button {
-    font-size: 16px;
-  }
-
-  .cart-item h2 {
-    font-size: 20px; /* Adjusted item name size for small screens */
-  }
-
-  .cart-item p {
-    font-size: 16px;
-  }
-
-  .remove-button {
-    font-size: 16px;
-    width: 25px; /* Even narrower for mobile */
-    height: 25px; /* Ensures the button remains square on mobile */
-  }
+/* Empty Cart Message */
+.cart-empty-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 20px;
 }

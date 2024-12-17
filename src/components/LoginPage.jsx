@@ -21,6 +21,7 @@ const LoginPage = ({ setUserRole = () => {} }) => { // Default fallback for setU
 
       const response = await axios.get('http://localhost:5000/api/auth/user');
       const users = response.data;
+      console.log(users)
 
       const user = users.find((u) => u.username === username && u.password === password);
 

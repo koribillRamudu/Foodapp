@@ -11,16 +11,18 @@ import RegisterPage from './components/register';
 import Header from './components/Header';
 import { CartProvider } from './context/CartContext'; // Import CartProvider
 import AddMenu from './components/addmenupage';
+import OrderHistoryPage from './components/orderhistory';
 
 function App() {
   const [username, setUsername] = useState('');
-  const location = useLocation();
+  const location = useLocation(); // You can use this if you need to track the current page or location.
 
   return (
     <CartProvider>
       <div>
         {/* Pass username to Header */}
         <Header username={username} />
+
         <Routes>
           <Route path="/" element={<Home username={username} />} />
           <Route path="/about" element={<About />} />
@@ -29,8 +31,10 @@ function App() {
           <Route path="/menu/:restaurantId" element={<MenuPage />} />
           <Route path="/login" element={<LoginPage setUsername={setUsername} />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path='/addmenu' element={<AddMenu/>}/>
-        </Routes>
+          <Route path="/addmenu" element={<AddMenu />} />
+          <Route path='/ordershistory' element={<OrderHistoryPage/>}/>
+       </Routes>
+
         <Footer />
       </div>
     </CartProvider>
